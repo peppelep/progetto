@@ -1,0 +1,174 @@
+.app-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.example-sidenav-content {
+  display: flex;
+  height: 100%;
+  padding:10px 10px 20px 10px;
+  justify-content: center;
+  background: #A1CEC7;
+  background: linear-gradient(315deg, #A1CEC7 0%, hsla(0, 0%, 100%, 1) 100%, hsla(252, 89%, 78%, 1) 100%);
+  background: -webkit-linear-gradient(315deg, #A1CEC7 0%, hsla(0, 0%, 100%, 1) 100%, hsla(252, 89%, 78%, 1) 100%);
+}
+
+.example-sidenav {
+  padding: 20px 5px;
+  width: 250px;
+  background-color: white;
+  box-shadow: 0 3px 5px #00000005, 0 0 2px #0000000d, 0 1px 4px #00000014;
+  border-radius: 0;
+}
+
+.e-breadcrumb {
+  display: flex;
+  align-items: center;
+}
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background-color: white;
+  padding: 0.5rem 0;
+  height: 60px;
+  background: #ffff;
+  box-shadow: 0 1px 2px #0000001f, 0 4px 5px #00000024, 0 2px 4px -1px #0003;
+  /* background: hsla(171, 47%, 34%, 1);
+
+  background: linear-gradient(360deg, hsla(171, 47%, 34%, 1) 0%, hsla(172, 32%, 47%, 1) 50%, hsla(171, 47%, 34%, 1) 100%);
+
+  background: -moz-linear-gradient(360deg, hsla(171, 47%, 34%, 1) 0%, hsla(172, 32%, 47%, 1) 50%, hsla(171, 47%, 34%, 1) 100%);
+
+  background: -webkit-linear-gradient(360deg, hsla(171, 47%, 34%, 1) 0%, hsla(172, 32%, 47%, 1) 50%, hsla(171, 47%, 34%, 1) 100%);
+
+  filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#2E8175", endColorstr="#52A095", GradientType=1 ); */
+}
+
+
+.content-container {
+  margin-top: 60px; /* Altezza dell'header */
+  flex: 1;
+  overflow: hidden;
+}
+
+.drawer-container {
+  height: 100%;
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+  padding-right: 20px;
+}
+
+.header-left {
+  padding-left: 5px;
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+}
+
+#menuButton{
+  background: none;
+  border: none;
+  box-shadow: none;
+}
+
+#containerBreadcrumb{
+  width:100%;
+  background-color: white;
+  padding:5px;
+  display:flex;
+  justify-content:space-between;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+#logoutButton {
+  background: none;
+  border: none;
+  color: black;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+#logoutButton:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.e-sidebar{
+  z-index:1!important;
+}
+
+.e-sidebar.e-left{
+  top:60px;
+  border-right: 0;
+  box-shadow: 0 9px 8px #0003, 0 6px 20px #00000030 !important;
+   /* box-shadow: 0px 0 7px #20635c; */
+}
+
+
+#logoCalio{
+  height: 20px;
+  width: 100%;
+}
+
+.mat-icon{
+  font-size: 15px;
+  height: 15px;
+  width: 15px;
+}
+
+.sidebar-footer {
+  margin-top: auto;
+  padding: 20px;
+  text-align: center;
+}
+
+.sidebar-logo {
+  max-width: 100%;
+  height: auto;
+  width: 70px;
+}
+
+.header-logo {
+  height: 30px;
+  width: auto;
+  margin-left: 10px;
+}
+
+
+.e-treeview.e-fullrow-wrap .e-text-content:not(.e-icon-wrapper) {
+  padding-left: 0 !important;
+}
+
+.e-icon-wrapper {
+  padding-left: 24px !important;
+}
+
+.e-treeview .e-ul {
+  padding: 0 0 0 5px!important;
+}
+
+/* per differenziare item in tree */
+.e-treeview .e-list-item .e-ul{
+  padding: 0 0 0 28px !important;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+
+
+/* CSS per ottenere un bordo chiuso simile a Bootstrap outline */
+.e-float-input .e-control-wrapper .e-input-group .outline-textbox{
+  border:1px solid #28b59f;
+}

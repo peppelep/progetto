@@ -1,0 +1,110 @@
+<div class="containerFormDialogUT">
+  <div class="divRounded mt-3" style="  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
+  <div class="title" >
+    <button ejs-button type="button" cssClass="utilityButton e-small" (click)="CambiaPassword()">Ripristina Password</button>
+  </div>
+  <form [formGroup]="utenteForm" >
+  <div class="form-container">
+      <!-- Dati Utente -->
+      <div class="form-group">
+        <div class="row">
+
+          <div class="col-md-6">
+            <ejs-textbox
+              formControlName="cf02Email"
+              placeholder="Email"
+              floatLabelType="Always"
+              [showClearButton]="true">
+            </ejs-textbox>
+            <div *ngIf="utenteForm.get('cf02Email')?.touched && utenteForm.get('cf02Email')?.invalid" class="e-error">
+              Formato email non valido
+            </div>
+          </div>
+          <div class="col-md-6" *ngIf="utenteSelected==null">
+            <ejs-textbox
+              formControlName="cf02Password"
+              placeholder="Password"
+              type="password"
+              floatLabelType="Always"
+              [showClearButton]="true">
+            </ejs-textbox>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6">
+            <ejs-textbox
+              formControlName="cf02Telefono"
+              placeholder="Telefono"
+              floatLabelType="Always"
+              [showClearButton]="true">
+            </ejs-textbox>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6">
+            <ejs-dropdownlist placeholder="Ruolo"
+            formControlName="cf02RuoloGe02"
+            [dataSource]="ruoli"
+            [fields]="{text: 'ge02Descrizione', value: 'ge02Ruolo'}"
+            floatLabelType="Auto">
+            </ejs-dropdownlist>
+          </div>
+        </div>
+      </div>
+
+      <!-- Permessi -->
+      <div class="form-group">
+        <h3>Permessi</h3>
+        <div class="row">
+          <div class="col-md-4">
+            <ejs-checkbox
+              formControlName="cf02Fornitori"
+              label="Gestione Fornitori"
+              floatLabelType="Always">
+            </ejs-checkbox>
+          </div>
+          <div class="col-md-4">
+            <ejs-checkbox
+              formControlName="cf02Clienti"
+              label="Gestione Clienti"
+              floatLabelType="Always">
+            </ejs-checkbox>
+          </div>
+          <div class="col-md-4">
+            <ejs-checkbox
+              formControlName="cf02Primanota"
+              label="Prima Nota"
+              floatLabelType="Always">
+            </ejs-checkbox>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pulsanti -->
+      <div class="button-container">
+        <button ejs-button type="button" cssClass="e-flat" (click)="annulla()">Annulla</button>
+        <button ejs-button type="button" cssClass="e-success" (click)="saveForm()" [disabled]="!utenteForm.valid">
+          Salva
+        </button>
+      </div>
+    </div>
+  </form>
+ </div>
+</div>
+
+<!-- Toast per le notifiche -->
+<ejs-toast #toast [position]="toastPosition" [showCloseButton]="true"></ejs-toast>
+
+
+<ejs-dialog #dialog
+  [isModal]="true"
+  [isResponsive]="true"
+  [width]="'30vw'"
+  [height]="'60vh'"
+  [showCloseIcon]="true"
+  [closeOnEscape]="true"
+  [visible]="false">
+  <app-ripristina-password></app-ripristina-password>
+</ejs-dialog>

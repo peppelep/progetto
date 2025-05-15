@@ -1,0 +1,27 @@
+
+/* Stile per l'header della grid */
+::ng-deep .e-grid .e-gridheader {
+  background-color: #f0f0f0 !important;
+}
+
+::ng-deep .e-grid .e-headercell {
+  background-color: #f0f0f0 !important;
+  text-align: left !important;
+}
+
+/* table - allineamento a sinistra dei td */
+::ng-deep .e-grid .e-rowcell {
+  text-align: left !important;
+}
+
+/* Stili per la grid */
+::ng-deep .e-grid {
+  border-radius: 12px !important;
+  overflow: hidden !important;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1) !important;
+}
+
+::ng-deep .e-grid .e-gridheader {
+  border-top-left-radius: 12px !important;
+  border-top-right-radius: 12px !important;
+}

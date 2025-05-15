@@ -1,0 +1,27 @@
+::ng-deep .e-dialog .e-dlg-header-content {
+  background: #A1CEC7!important;
+  background: linear-gradient(315deg, #A1CEC7 0%, hsla(0, 0%, 100%, 1) 100%, hsla(252, 89%, 78%, 1) 100%)!important;
+  background: -webkit-linear-gradient(315deg, #A1CEC7 0%, hsla(0, 0%, 100%, 1) 100%, hsla(252, 89%, 78%, 1) 100%)!important;
+  border-radius: 20px 20px 0 0 !important;
+}
+
+::ng-deep .e-dialog .e-dlg-content {
+  border-radius: 0 0 20px 20px !important;
+}
+
+::ng-deep .e-dialog {
+  border-radius: 20px !important;
+  overflow: hidden !important;
+}
+/*
+::ng-deep .e-dialog .e-dlg-header {
+  border-radius: 20px 20px 0 0 !important;
+} */
+
+::ng-deep .e-dialog .e-dlg-footer {
+  border-radius: 0 0 20px 20px !important;
+}
+
+::ng-deep .e-control .e-dialog .e-lib .e-dlg-modal .e-popup .e-popup-open{
+  border-radius: 20px !important;
+}

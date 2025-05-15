@@ -1,0 +1,72 @@
+
+<form [formGroup]="contoForm" (ngSubmit)="onSubmit()">
+  <div class="form-container">
+    <!-- Messaggio di errore -->
+    <div *ngIf="error" class="error-container">
+      <div class="e-error-msg">
+        <span class="e-error-icon e-icons"></span>
+        <div class="e-error-content">{{ error }}</div>
+      </div>
+    </div>
+
+    <!-- Nome -->
+    <div class="form-group">
+      <ejs-textbox
+        formControlName="cf04Nome"
+        placeholder="Nome"
+        floatLabelType="Always"
+        [showClearButton]="true">
+      </ejs-textbox>
+      <div *ngIf="contoForm.get('cf04Nome')?.touched && contoForm.get('cf04Nome')?.invalid" class="e-error">
+        {{ getErrorMessage('cf04Nome') }}
+      </div>
+    </div>
+
+    <!-- Tipo -->
+    <div class="form-group">
+      <ejs-dropdownlist
+        placeholder="Tipo"
+       formControlName="cf04Tipo"
+       [dataSource]="tipiAnagraficaOptions"
+        [fields]="{text: 'text', value: 'value'}"
+        floatLabelType="Always"
+        ></ejs-dropdownlist>
+    </div>
+
+    <!-- IBAN -->
+    <div class="form-group" *ngIf="contoForm.get('cf04Tipo')?.value =='B'">
+      <ejs-textbox
+        formControlName="cf04Iban"
+        placeholder="IBAN"
+        floatLabelType="Always"
+        [showClearButton]="true">
+      </ejs-textbox>
+      <div class="e-hint-text">Formato: IT00X0000000000000000000000</div>
+      <div *ngIf="contoForm.get('cf04Iban')?.touched && contoForm.get('cf04Iban')?.invalid" class="e-error">
+        {{ getErrorMessage('cf04Iban') }}
+      </div>
+    </div>
+
+    <!-- Codice SIA -->
+    <div class="form-group" *ngIf="contoForm.get('cf04Tipo')?.value =='B'">
+      <ejs-textbox
+        formControlName="cf04CodiceSia"
+        placeholder="Codice SIA"
+        floatLabelType="Always"
+        [showClearButton]="true">
+      </ejs-textbox>
+      <div class="e-hint-text">Massimo 5 caratteri</div>
+      <div *ngIf="contoForm.get('cf04CodiceSia')?.touched && contoForm.get('cf04CodiceSia')?.invalid" class="e-error">
+        {{ getErrorMessage('cf04CodiceSia') }}
+      </div>
+    </div>
+
+    <!-- Pulsanti -->
+    <div class="button-container">
+      <button ejs-button type="button" cssClass="e-flat" (click)="saveComplete.emit()">Annulla</button>
+      <button ejs-button type="submit" cssClass="e-success">
+        Salva
+      </button>
+    </div>
+  </div>
+</form>

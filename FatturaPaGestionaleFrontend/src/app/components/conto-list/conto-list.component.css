@@ -1,0 +1,96 @@
+
+/* Stile per l'header della grid */
+::ng-deep .e-grid .e-gridheader {
+  background-color: #f0f0f0 !important;
+}
+
+::ng-deep .e-grid .e-headercell {
+  background-color: #f0f0f0 !important;
+  text-align: left !important;
+}
+
+/* table - allineamento a sinistra dei td */
+::ng-deep .e-grid .e-rowcell {
+  text-align: left !important;
+}
+
+/* Stili per la grid */
+::ng-deep .e-grid {
+  border-radius: 12px !important;
+  overflow: hidden !important;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1) !important;
+}
+
+::ng-deep .e-grid .e-gridheader {
+  border-top-left-radius: 12px !important;
+  border-top-right-radius: 12px !important;
+}
+
+
+.filters-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+
+  .global-filter {
+    flex: 1;
+    margin-right: 16px;
+  }
+}
+
+.loading-error {
+  margin-bottom: 16px;
+
+  .error-message {
+    display: flex;
+    align-items: center;
+    color: #f44336;
+    padding: 8px;
+
+    mat-icon {
+      margin-right: 8px;
+    }
+  }
+}
+
+  .no-data {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 24px;
+    color: rgba(0, 0, 0, 0.54);
+
+    mat-icon {
+      font-size: 48px;
+      width: 48px;
+      height: 48px;
+      margin-bottom: 16px;
+    }
+  }
+
+
+
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+
+    button {
+      margin-top: 16px;
+      align-self: flex-end;
+    }
+  }
+
+  .filters-container {
+    flex-direction: column;
+    align-items: stretch;
+
+    .global-filter {
+      margin-right: 0;
+      margin-bottom: 16px;
+    }
+  }
+
+  .table-container {
+    overflow-x: auto;
+  }}

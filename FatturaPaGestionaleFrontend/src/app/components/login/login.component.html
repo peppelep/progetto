@@ -1,0 +1,42 @@
+<div class="login-container">
+  <div class="login-box">
+    <div class="login-header">
+      <img src="assets/img/logoFPA.png" alt="Logo FPA" class="login-logo">
+    </div>
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="login-form">
+      <div class="form-group">
+        <label for="username">Username</label>
+        <input
+          type="text"
+          id="username"
+          formControlName="username"
+          class="form-control"
+          placeholder="Inserisci username">
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <div class="password-input-container">
+          <input
+            [type]="showPassword ? 'text' : 'password'"
+            id="password"
+            formControlName="password"
+            class="form-control"
+            placeholder="Inserisci password">
+          <button
+            type="button"
+            class="toggle-password"
+            (click)="togglePasswordVisibility()">
+            <i class="e-icons" [class]="showPassword ? 'e-eye' : 'e-eye-slash'"></i>
+          </button>
+        </div>
+      </div>
+      <button
+        type="submit"
+        class="btn-login"
+        [disabled]="!loginForm.valid">
+        Accedi
+      </button>
+    </form>
+    <div style="margin-top:20px" class="alert alert-danger" *ngIf="this.rejected==true" >{{errorMessage}}</div>
+  </div>
+</div>

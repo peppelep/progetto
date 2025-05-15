@@ -1,0 +1,27 @@
+
+.e-accordion {
+  background-color: transparent!important;
+  border:none!important;
+  border-radius: 20px;
+  overflow: hidden;
+  /* box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12); */
+}
+
+.e-accordion .e-acrdn-item:first-child {
+  border-radius: 20px 20px 0 0;
+}
+
+.e-accordion .e-acrdn-item.e-select.e-active>.e-acrdn-header,
+.e-accordion .e-acrdn-item.e-select.e-item-focus>.e-acrdn-header {
+    background-color: #f0f0f0 !important;
+}
+
+.e-accordion .e-acrdn-item .e-acrdn-header:hover {
+  background-color: #dfdede;
+}
+
+
+
+.e-accordion .e-acrdn-item {
+  margin-bottom: 10px!important;
+}

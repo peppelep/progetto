@@ -1,0 +1,64 @@
+<div class="containerRouting">
+  <!-- <h5 class="dm-serif-text-regular">Utenti e Permessi</h5>
+  <hr> style="margin:3rem 1rem 1rem 1rem"-->
+  <div class="d-flex justify-content-between m-3"  >
+    <ejs-tooltip content="Pulisci Filtri">
+      <button   ejs-button cssClass="utilityButton" (click)="pulisciFiltri()">
+        <i class="e-icons e-filter-clear" style="font-size: 20px"></i>
+      </button>
+    </ejs-tooltip>
+    <button ejs-button cssClass="e-primary" (click)="openUtenteDialog()">
+      <label> Nuovo Utente </label>
+    </button>
+  </div>
+  <div id="containerGrid" width="100%">
+
+    <ejs-grid
+      #grid
+      [dataSource]="utenti"
+      width="100%" [height]='400'
+      [allowFiltering]="true"
+      [filterSettings]="filterSettings"
+      [allowPaging]="true"
+      [allowSorting]="true"
+      [locale]="locale"
+      [pageSettings]="pageSettings"
+      (actionBegin)="onActionBegin($event)"
+      (pageChange)="onPageChange($event)">
+      <e-columns>
+        <e-column field="cf02Email" headerText="Email" width="200"></e-column>
+        <e-column field="cf02Telefono" headerText="Telefono" width="120"></e-column>
+        <e-column field="ge02Descrizione" headerText="Ruolo" width="120"></e-column>
+        <e-column field="cf02Fornitori" headerText="Fornitori" width="100" [displayAsCheckBox]="true"></e-column>
+        <e-column field="cf02Clienti" headerText="Clienti" width="100" [displayAsCheckBox]="true"></e-column>
+        <e-column field="cf02Primanota" headerText="Prima Nota" width="100" [displayAsCheckBox]="true"></e-column>
+        <e-column headerText="Azioni" width="120" textAlign="left">
+          <ng-template #template let-data>
+            <div class="action-buttons">
+              <button ejs-button cssClass="e-flat" (click)="openUtenteDialogEdit(data)">
+                <i class="e-icons e-edit"></i>
+              </button>
+              <button ejs-button cssClass="e-flat e-danger" iconCss="e-icons e-delete" (click)="deleteUtente(data)"></button>
+            </div>
+          </ng-template>
+        </e-column>
+      </e-columns>
+    </ejs-grid>
+  </div>
+</div>
+
+<!-- Dialog per la creazione/modifica dell'utente-->
+<ejs-dialog #dialog
+[isModal]="true"
+[isResponsive]="true"
+[width]="'50vw'"
+[height]="'60vh'"
+[showCloseIcon]="true"
+[closeOnEscape]="true"
+[visible]="false"
+[header]="dialogHeader"
+[animationSettings]="{ effect: 'Zoom' }">
+  <ng-template #content>
+    <app-utente-form [utenteSelected]="selectedUtente!" (closeDialog)="closeUtenteDialog()"></app-utente-form>
+  </ng-template>
+</ejs-dialog>

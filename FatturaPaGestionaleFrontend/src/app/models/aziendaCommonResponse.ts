@@ -1,0 +1,29 @@
+export interface AziendaCommonResponse {
+  ragioneSociale?: string;
+  piva?: string;
+  codiceFiscale?: string;
+  nrea?: string;
+  indirizzo?: string;
+  civico?: string;
+  comune?: string;
+  provincia?: string;
+  nazione?: string;
+  statoAttivitaDesc?: string;
+  codiceAteco?: string;
+  descrizioneAteco?: string;
+  cap?: string;
+  dataInizioAttivita?: Date;
+  fasciaNumDipendentiISTAT?: string;
+  utilePerditaUltimoAnno?: number;
+  fatturatoUltimoAnno?: number;
+  ultimoAnno?: Date;
+  utilePerditaPenultimoAnno?: number;
+  fatturatoPenultimoAnno?: number;
+  penultimoAnno?: Date;
+  utilePerditaTerzultimoAnno?: number;
+  fatturatoTerzultimoAnno?: number;
+  terzultimoAnno?: Date;
+  longitudine?: number;
+  latitudine?: number;
+  cacheTimestamp?: Date;
+}

@@ -1,0 +1,45 @@
+<div class="app-container">
+  <!-- Header -->
+  <div class="header" *ngIf="getLogin()">
+    <div class="header-content">
+      <div class="header-left">
+        <button ejs-button id="menuButton" (click)="drawer.toggle()">
+          <mat-icon >menu</mat-icon>
+        </button>
+        <img src="assets/img/logoFPA.png" alt="Logo FPA" class="header-logo">
+      </div>
+      <div>
+
+      </div>
+      <!-- <ejs-textbox cssClass="outline-textbox" placeholder="Seleziona Anno" floatLabelType="Auto"></ejs-textbox> -->
+      <!-- <button ejs-button id="logoutButton" (click)="logout()" class="logout-button">
+        <mat-icon>logout</mat-icon>
+      </button> -->
+    </div>
+  </div>
+
+  <div class="content-container">
+    <mat-drawer-container class="drawer-container" autosize>
+      <mat-drawer #drawer class="example-sidenav" mode="side" [opened]="true" [ngStyle]="{'display': getLogin() ? 'block' : 'none'}">
+
+       <ejs-treeview id="defaultTree" [fields]="treeFields"
+        (nodeSelected)="onSelect($event)" expandOn="Click">
+        </ejs-treeview>
+        <!-- <ejs-menu [items]="menuItems" [showItemOnClick]="true"></ejs-menu> -->
+
+      </mat-drawer>
+
+      <div id="containerBreadcrumb"  *ngIf="getLogin()">
+        <ejs-breadcrumb [items]="breadcrumbItems" [enableNavigation]="true"></ejs-breadcrumb>
+
+        <button id="logoutButton" (click)="logout()" class="logout-button">
+          <mat-icon>logout</mat-icon>
+        </button>
+      </div>
+      <div class="example-sidenav-content">
+        <router-outlet></router-outlet>
+      </div>
+    </mat-drawer-container>
+  </div>
+</div>
+

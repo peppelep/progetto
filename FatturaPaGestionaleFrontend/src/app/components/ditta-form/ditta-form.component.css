@@ -1,0 +1,48 @@
+/* an01-dittum.component.css */
+.containerForm {
+  padding: 0 20px;
+  height: calc(100vh - 100px); /* Altezza fissa per il container principale */
+  display: flex;
+  flex-direction: column;
+  overflow: hidden; /* Impedisce lo scrolling del container principale */
+}
+
+.row {
+  margin-bottom: 15px;
+}
+
+h3 {
+  margin-top: 20px;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+ejs-textbox,
+ejs-numerictextbox,
+ejs-datepicker,
+ejs-dropdownlist,
+ejs-check-box,
+ejs-uploader {
+  width: 100%;
+}
+
+.example-action-buttons {
+  margin:10px 20px;
+  display: flex;
+  gap:1em;
+  flex-shrink: 0; /* Impedisce al pulsante di ridursi */
+}
+
+
+#containerScroll {
+  flex: 1; /* Fa crescere il container per occupare lo spazio rimanente */
+  overflow-y: auto; /* Abilita lo scrolling verticale solo per questo div */
+  padding: 5px;
+  margin: 10px 5px 15px 5px;
+  border-radius: 8px;
+}
+
+/* specifico header bianco per questo component */
+.e-accordion .e-acrdn-header {
+  background-color: white!important;
+}

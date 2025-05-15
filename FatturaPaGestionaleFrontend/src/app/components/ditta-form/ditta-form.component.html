@@ -1,0 +1,442 @@
+<!-- an01-dittum.component.html -->
+<div class="containerForm">
+
+  <div class="example-action-buttons mt-3" >
+    <ejs-tooltip content="Torna alla schermata precedente" *ngIf="dittaId">
+    <button ejs-button cssClass="utilityButton" (click)="back()"  >
+        <span class="e-icons e-arrow-left"></span>
+    </button>
+  </ejs-tooltip>
+  <ejs-tooltip content="Apri i pannelli">
+    <button ejs-button cssClass="button-transparent" (click)="accordion.expandItem(true); openAll()"  [disabled]="isExpanded" >
+      <span class="e-icons e-chevron-down-double"></span>
+    </button>
+  </ejs-tooltip>
+  <ejs-tooltip content="Chiudi i pannelli">
+    <button ejs-button cssClass="button-transparent" (click)="accordion.expandItem(false); closeAll()" [disabled]="!isExpanded">
+      <span class="e-icons e-chevron-up-double"></span>
+    </button>
+  </ejs-tooltip>
+  </div>
+
+<div id="containerScroll">
+  <form [formGroup]="dittumForm">
+
+    <ejs-accordion expandMode='Multiple' #accordion >
+      <e-accordionitems>
+        <e-accordionitem [expanded]='true'>
+          <ng-template #header>
+            <div><b>Identificazione</b></div>
+          </ng-template>
+          <ng-template #content>
+            <div [ngTemplateOutlet]="identificazione"></div>
+          </ng-template>
+        </e-accordionitem>
+        <e-accordionitem [expanded]='true'>
+          <ng-template #header>
+            <div><b>Indirizzo</b></div>
+          </ng-template>
+          <ng-template #content>
+            <div [ngTemplateOutlet]="indirizzo"></div>
+          </ng-template>
+        </e-accordionitem>
+        <e-accordionitem [expanded]='true'>
+          <ng-template #header>
+            <div><b>Dati Albo</b></div>
+          </ng-template>
+          <ng-template #content>
+            <div [ngTemplateOutlet]="datiAlbo"></div>
+          </ng-template>
+        </e-accordionitem>
+        <e-accordionitem [expanded]='true'>
+          <ng-template #header>
+            <div><b>Dati Aziendali</b></div>
+          </ng-template>
+          <ng-template #content>
+            <div [ngTemplateOutlet]="datiAziendali"></div>
+          </ng-template>
+        </e-accordionitem>
+        <e-accordionitem [expanded]='true'>
+          <ng-template #header>
+            <div><b>Iscrizione REA</b></div>
+          </ng-template>
+          <ng-template #content>
+            <div [ngTemplateOutlet]="iscrizioneRea"></div>
+          </ng-template>
+        </e-accordionitem>
+        <e-accordionitem [expanded]='true'>
+          <ng-template #header>
+            <div><b>Dati Fiscali</b></div>
+          </ng-template>
+          <ng-template #content>
+            <div [ngTemplateOutlet]="datiFiscali"></div>
+          </ng-template>
+        </e-accordionitem>
+        <e-accordionitem [expanded]='true'>
+          <ng-template #header>
+            <div><b>Casse Previdenziali</b></div>
+          </ng-template>
+          <ng-template #content>
+            <div [ngTemplateOutlet]="cassePrevidenziali"></div>
+          </ng-template>
+        </e-accordionitem>
+        <e-accordionitem [expanded]='true'>
+          <ng-template #header>
+            <div><b>Ritenute</b></div>
+          </ng-template>
+          <ng-template #content>
+            <div [ngTemplateOutlet]="ritenute"></div>
+          </ng-template>
+        </e-accordionitem>
+
+        <e-accordionitem [expanded]='true'>
+          <ng-template #header>
+            <div><b>Contatti</b></div>
+          </ng-template>
+          <ng-template #content>
+            <div [ngTemplateOutlet]="contatti"></div>
+          </ng-template>
+        </e-accordionitem>
+        <e-accordionitem [expanded]='true'>
+          <ng-template #header>
+            <div><b>Altri Dati</b></div>
+          </ng-template>
+          <ng-template #content>
+            <div [ngTemplateOutlet]="altriDati"></div>
+          </ng-template>
+        </e-accordionitem>
+        <e-accordionitem [expanded]='true'>
+          <ng-template #header>
+            <div><b>Note</b></div>
+          </ng-template>
+          <ng-template #content>
+            <div [ngTemplateOutlet]="note"></div>
+          </ng-template>
+        </e-accordionitem>
+      </e-accordionitems>
+  </ejs-accordion>
+
+
+    <!-- Identificazione -->
+    <ng-template #identificazione>
+    <div class="row">
+      <div class="col-md-4">
+        <ejs-textbox placeholder="Partita IVA" formControlName="an01Partitaiva" floatLabelType="Auto" (blur)="validatePartitaIva()"></ejs-textbox>
+        <div *ngIf="dittumForm.get('an01Partitaiva')?.errors" class="error-messages">
+          <div *ngIf="dittumForm.get('an01Partitaiva')?.errors?.['required']" class="e-error">
+            La Partita IVA è obbligatoria
+          </div>
+          <div *ngIf="dittumForm.get('an01Partitaiva')?.errors" class="e-error">
+            La Partita IVA non valida
+          </div>
+
+        </div>
+      </div>
+      <div class="col-md-4">
+        <ejs-textbox placeholder="Codice Fiscale" formControlName="an01CodiceFiscale" floatLabelType="Auto" (blur)="validateCodiceFiscale()"></ejs-textbox>
+      <!-- Messaggi di errore personalizzati -->
+    <div *ngIf="dittumForm.get('an01CodiceFiscale')?.errors" class="error-messages">
+      <div *ngIf="dittumForm.get('an01CodiceFiscale')?.errors?.['required']" class="e-error">
+        Il Codice Fiscale è obbligatorio
+      </div>
+      <div *ngIf="dittumForm.get('an01CodiceFiscale')?.errors?.['codiceFiscaleFormat']" class="e-error">
+        Formato non valido (16 caratteri alfanumerici)
+      </div>
+      <div *ngIf="dittumForm.get('an01CodiceFiscale')?.errors?.['codiceFiscaleStructure']" class="e-error">
+        Struttura non valida (6 lettere + 2 numeri + 1 lettera + 2 numeri + 1 lettera + 3 numeri + 1 lettera)
+      </div>
+      <div *ngIf="dittumForm.get('an01CodiceFiscale')?.errors?.['codiceFiscaleCheckDigit']" class="e-error">
+        Carattere di controllo non valido
+      </div>
+    </div>
+
+      </div>
+      <div class="col-md-4">
+        <ejs-textbox placeholder="Ragione Sociale" formControlName="an01Ragsoc" floatLabelType="Auto"></ejs-textbox>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-4">
+        <ejs-textbox placeholder="Nome" formControlName="an01Nome" floatLabelType="Auto"></ejs-textbox>
+      </div>
+      <div class="col-md-4">
+        <ejs-textbox placeholder="Cognome" formControlName="an01Cognome" floatLabelType="Auto"></ejs-textbox>
+      </div>
+    </div>
+    </ng-template>
+
+    <!-- Dati Albo -->
+     <ng-template #datiAlbo>
+    <div class="row">
+      <div class="col-md-3">
+        <ejs-dropdownlist placeholder="Iscritto Albo" formControlName="an01IscrittoAlbo" [dataSource]="yesNoData" [fields]="{text: 'text', value: 'value'}" floatLabelType="Auto" ></ejs-dropdownlist>
+      </div>
+      <div class="col-md-3" *ngIf="dittumForm.get('an01IscrittoAlbo')?.value === 'S'">
+        <ejs-textbox placeholder="Albo" formControlName="an01Albo" floatLabelType="Auto"></ejs-textbox>
+      </div>
+      <div class="col-md-3" *ngIf="dittumForm.get('an01IscrittoAlbo')?.value === 'S'">
+        <ejs-dropdownlist placeholder="Provincia Albo" formControlName="an01ProvinciaAlboGe08" [dataSource]="provinceData" [fields]="{text: 'ge08Provincia', value: 'ge08Nome'}"  floatLabelType="Auto"></ejs-dropdownlist>
+      </div>
+      <div class="col-md-3" *ngIf="dittumForm.get('an01IscrittoAlbo')?.value === 'S'">
+        <ejs-textbox placeholder="Numero Iscrizione" formControlName="an01NumeroIscrizioneAlbo" floatLabelType="Auto"></ejs-textbox>
+      </div>
+    </div>
+    <div class="row" *ngIf="dittumForm.get('an01IscrittoAlbo')?.value === 'S'">
+      <div class="col-md-4">
+        <ejs-datepicker placeholder="Data Iscrizione" formControlName="an01DataIscrizioneAlbo" floatLabelType="Auto"></ejs-datepicker>
+      </div>
+    </div>
+    </ng-template>
+
+    <!-- Dati Aziendali -->
+     <ng-template #datiAziendali>
+    <div class="row">
+      <div class="col-md-3">
+        <ejs-dropdownlist placeholder="Tipo Ditta" formControlName="an01TipoDitta" [dataSource]="tipoDittaData" [fields]="{text: 'label', value: 'value'}"  floatLabelType="Auto"></ejs-dropdownlist>
+      </div>
+      <div class="col-md-3">
+        <ejs-dropdownlist placeholder="Forfettario" formControlName="an01Forfettario" [dataSource]="forfettarioData" [fields]="{text: 'label', value: 'value'}"  floatLabelType="Auto"></ejs-dropdownlist>
+      </div>
+      <div class="col-md-3" *ngIf="dittumForm.get('an01Forfettario')?.value === 1">
+        <ejs-dropdownlist placeholder="Tipo Forfettario" formControlName="an01TipoForfettario" [dataSource]="tipoForfettarioData"  [fields]="{text: 'label', value: 'value'}"  floatLabelType="Auto"></ejs-dropdownlist>
+      </div>
+      <div class="col-md-3" *ngIf="dittumForm.get('an01Forfettario')?.value === 1">
+        <ejs-dropdownlist placeholder="Coefficiente Redditività" formControlName="an01CoefficienteRedditivita"  [dataSource]="coefficienteRedditivitaData" [fields]="{text: 'label', value: 'value'}" floatLabelType="Auto"></ejs-dropdownlist>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-4">
+        <ejs-dropdownlist placeholder="Fattura Medici" formControlName="an01FatturaMedici" [dataSource]="yesNoData" [fields]="{text: 'text', value: 'value'}" floatLabelType="Auto"></ejs-dropdownlist>
+      </div>
+    </div>
+  </ng-template>
+
+    <!-- Iscrizione REA -->
+     <ng-template #iscrizioneRea>
+    <div class="row">
+      <div class="col-md-4">
+        <ejs-dropdownlist placeholder="Iscritto REA" formControlName="an01IscrittoRea" [dataSource]="yesNoData"  [fields]="{text: 'text', value: 'value'}" floatLabelType="Auto"></ejs-dropdownlist>
+      </div>
+      <div class="col-md-4" *ngIf="dittumForm.get('an01IscrittoRea')?.value === 'S'">
+        <ejs-dropdownlist placeholder="Ufficio REA" formControlName="an01UfficioReaGe08"  [dataSource]="provinceData" [fields]="{text: 'ge08Provincia', value: 'ge08Nome'}" floatLabelType="Auto"></ejs-dropdownlist>
+      </div>
+      <div class="col-md-4" *ngIf="dittumForm.get('an01IscrittoRea')?.value === 'S'">
+        <ejs-textbox placeholder="Numero REA" formControlName="an01NumeroRea" floatLabelType="Auto"></ejs-textbox>
+      </div>
+    </div>
+    <div class="row" *ngIf="dittumForm.get('an01IscrittoRea')?.value === 'S'">
+      <div class="col-md-4">
+        <ejs-numerictextbox placeholder="Capitale Sociale" formControlName="an01CapitaleSociale"   currency="EUR" format="c2" floatLabelType="Auto"></ejs-numerictextbox>
+      </div>
+      <div class="col-md-4">
+        <ejs-dropdownlist placeholder="Socio Unico" formControlName="an01SocioUnico" [dataSource]="socioUnicoData" [fields]="{text: 'text', value: 'value'}" floatLabelType="Auto"></ejs-dropdownlist>
+      </div>
+      <div class="col-md-4">
+        <ejs-dropdownlist placeholder="Stato Liquidazione" formControlName="an01StatoLiquidazione" [dataSource]="statoLiquidazioneData" [fields]="{text: 'label', value: 'value'}" floatLabelType="Auto"></ejs-dropdownlist>
+      </div>
+    </div>
+  </ng-template>
+
+    <!-- Dati Fiscali -->
+     <ng-template #datiFiscali>
+    <div class="row">
+      <div class="col-md-4">
+        <ejs-dropdownlist placeholder="Regime Fiscale" formControlName="an01RegimeFiscaleGe04" popupWidth="auto" [dataSource]="regimeFiscaleData" [fields]="{text: 'ge04Descrizione', value: 'ge04RegimeFiscale1'}" floatLabelType="Auto"></ejs-dropdownlist>
+      </div>
+      <div class="col-md-4">
+        <ejs-dropdownlist placeholder="Codice IVA Prevalente" formControlName="an01CodiceivaGe03" popupWidth="auto" [dataSource]="codiceIvaData" [fields]="{text: 'ge03Descrizione', value: 'ge03CodiceIva'}" floatLabelType="Auto"></ejs-dropdownlist>
+      </div>
+      <div class="col-md-4">
+        <ejs-dropdownlist placeholder="IVA Agricola" formControlName="an01Ivaagricola"  [dataSource]="yesNoData" [fields]="{text: 'text', value: 'value'}" floatLabelType="Auto"></ejs-dropdownlist>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-4">
+        <ejs-textbox placeholder="Utente Notifiche" formControlName="an01UtenteNotificheCf02" floatLabelType="Auto"></ejs-textbox>
+      </div>
+      <div class="col-md-4">
+        <ejs-textbox placeholder="IBAN" formControlName="an01Iban" floatLabelType="Auto"></ejs-textbox>
+      </div>
+      <div class="col-md-4">
+        <ejs-dropdownlist placeholder="Esigibilità IVA" formControlName="an01EsigibilitaIva" [dataSource]="esigibilitaIvaData" [fields]="{text: 'label', value: 'value'}" floatLabelType="Auto"></ejs-dropdownlist>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-4">
+        <ejs-dropdownlist placeholder="Rivalsa INPS" formControlName="an01RivalsaInps" [dataSource]="yesNoData" [fields]="{text: 'text', value: 'value'}" floatLabelType="Auto"></ejs-dropdownlist>
+      </div>
+      <div class="col-md-4" *ngIf="dittumForm.get('an01RivalsaInps')?.value === 'S'">
+        <ejs-numerictextbox placeholder="Percentuale Rivalsa INPS" formControlName="an01PercentualeRivalsaInps" format="p2" floatLabelType="Auto"></ejs-numerictextbox>
+      </div>
+    </div>
+  </ng-template>
+
+    <!-- Casse Previdenziali -->
+     <ng-template #cassePrevidenziali>
+    <div class="row">
+      <div class="col-md-3">
+        <ejs-dropdownlist placeholder="Cassa 1" formControlName="an01Cassa01Ge05" [dataSource]="cassaProfData" popupWidth="auto" [fields]="{text: 'ge05Descrizione', value: 'ge05Cassa'}" floatLabelType="Auto"></ejs-dropdownlist>
+      </div>
+      <div class="col-md-3" *ngIf="dittumForm.get('an01Cassa01Ge05')?.value">
+        <ejs-dropdownlist placeholder="Cassa 1 con Ritenuta" formControlName="an01Cassa01ConRitenuta"  [dataSource]="yesNoData" [fields]="{text: 'text', value: 'value'}" floatLabelType="Auto"></ejs-dropdownlist>
+      </div>
+      <div class="col-md-3" *ngIf="dittumForm.get('an01Cassa01Ge05')?.value">
+        <ejs-numerictextbox placeholder="Ritenuta Cassa 1" formControlName="an01RitenutaCassa01" format="p2" floatLabelType="Auto"></ejs-numerictextbox>
+      </div>
+      <div class="col-md-3" *ngIf="dittumForm.get('an01Cassa01Ge05')?.value">
+        <ejs-dropdownlist placeholder="Codice IVA Cassa 2" formControlName="an01Codiceivacassa01Ge03" popupWidth="auto" [dataSource]="codiceIvaData" [fields]="{text: 'ge03Descrizione', value: 'ge03Codice'}" floatLabelType="Auto"></ejs-dropdownlist>
+      </div>
+    </div>
+    <div class="row" *ngIf="dittumForm.get('an01Cassa01Ge05')?.value">
+      <div class="col-md-3">
+        <ejs-dropdownlist placeholder="Cassa 2" formControlName="an01Cassa02Ge05" [dataSource]="cassaProfData" popupWidth="auto" [fields]="{text: 'ge05Descrizione', value: 'ge05Cassa'}" floatLabelType="Auto"></ejs-dropdownlist>
+      </div>
+      <div class="col-md-3" *ngIf="dittumForm.get('an01Cassa01Ge05')?.value && dittumForm.get('an01Cassa02Ge05')?.value">
+        <ejs-dropdownlist placeholder="Cassa 2 con Ritenuta" formControlName="an01Cassa02ConRitenuta" [dataSource]="yesNoData" popupWidth="auto" [fields]="{text: 'text', value: 'value'}" floatLabelType="Auto"></ejs-dropdownlist>
+      </div>
+      <div class="col-md-3" *ngIf="dittumForm.get('an01Cassa01Ge05')?.value && dittumForm.get('an01Cassa02Ge05')?.value">
+        <ejs-numerictextbox placeholder="Ritenuta Cassa 2" formControlName="an01RitenutaCassa02" format="p2" floatLabelType="Auto"></ejs-numerictextbox>
+      </div>
+      <div class="col-md-3" *ngIf="dittumForm.get('an01Cassa01Ge05')?.value && dittumForm.get('an01Cassa02Ge05')?.value">
+        <ejs-dropdownlist placeholder="Codice IVA Cassa 2" formControlName="an01Codiceivacassa02Ge03" [dataSource]="codiceIvaData" popupWidth="auto" [fields]="{text: 'ge03Descrizione', value: 'ge03Codice'}" floatLabelType="Auto"></ejs-dropdownlist>
+      </div>
+    </div>
+  </ng-template>
+
+    <!-- Ritenute -->
+     <ng-template #ritenute>
+    <div class="row">
+      <div class="col-md-4">
+        <ejs-dropdownlist placeholder="Tipo Ritenuta" formControlName="an01TipoRitenutaGe06" [dataSource]="tipoRitenutaData"   [fields]="{text: 'ge06Descrizione', value: 'ge06TipoRitenuta'}" floatLabelType="Auto"></ejs-dropdownlist>
+      </div>
+      <div class="col-md-4" *ngIf="dittumForm.get('an01TipoRitenutaGe06')?.value">
+        <ejs-dropdownlist placeholder="Causale Pagamento Ritenuta" formControlName="an01CausPagRitenutaGe07" [dataSource]="causPagRitenutaData"  popupWidth="auto" [fields]="{text: 'ge07Descrizione', value: 'ge07CauPagRit'}" floatLabelType="Auto"></ejs-dropdownlist>
+      </div>
+      <div class="col-md-4" *ngIf="dittumForm.get('an01TipoRitenutaGe06')?.value">
+        <ejs-numerictextbox placeholder="Percentuale Ritenuta" formControlName="an01PercRitenuta" format="p2" floatLabelType="Auto"></ejs-numerictextbox>
+      </div>
+    </div>
+  </ng-template>
+
+    <!-- Indirizzo -->
+     <ng-template #indirizzo>
+    <div class="row">
+      <div class="col-md-4">
+        <ejs-dropdownlist placeholder="Comune" formControlName="an01ComuneGe01" [dataSource]="comuniData"
+        [fields]="{text: 'ge01Nome', value: 'ge01Comune'}"
+         floatLabelType="Auto"
+         [allowFiltering]="true"
+          (filtering)="onComuneFiltering($event)"
+         ></ejs-dropdownlist>
+      </div>
+      <div class="col-md-4">
+        <ejs-textbox placeholder="CAP" formControlName="an01CapDiverso" floatLabelType="Auto"></ejs-textbox>
+      </div>
+      <div class="col-md-4">
+        <ejs-textbox placeholder="Numero Civico" formControlName="an01NumeroCivico" floatLabelType="Auto"></ejs-textbox>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <ejs-textbox placeholder="Indirizzo" formControlName="an01Indirizzo" floatLabelType="Auto"></ejs-textbox>
+      </div>
+      <div class="col-md-12">
+        <ejs-textbox placeholder="Note Indirizzo" formControlName="an01NoteIndirizzo" multiline="true" floatLabelType="Auto"></ejs-textbox>
+      </div>
+    </div>
+  </ng-template>
+
+    <!-- Contatti -->
+     <ng-template #contatti>
+    <div class="row">
+      <div class="col-md-4">
+        <ejs-textbox placeholder="Nome Contatto" formControlName="an01NomeContatto" floatLabelType="Auto"></ejs-textbox>
+      </div>
+      <div class="col-md-4">
+        <ejs-textbox placeholder="Email Contatto" formControlName="an01EmailContatto" floatLabelType="Auto" (blur)="validatean01EmailContatto()"></ejs-textbox>
+        <div *ngIf="dittumForm.get('an01EmailContatto')?.errors" class="error-messages">
+          <div *ngIf="dittumForm.get('an01EmailContatto')?.errors?.['email']" class="e-error">
+            Formato dell'email non valido
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <ejs-textbox placeholder="Telefono Contatto" formControlName="an01TelefonoContatto" floatLabelType="Auto"></ejs-textbox>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-4">
+        <ejs-textbox placeholder="Sito Web" formControlName="an01Sitoweb" floatLabelType="Auto"></ejs-textbox>
+      </div>
+      <div class="col-md-4">
+        <ejs-textbox placeholder="Email Fattura" formControlName="an01EmailFattura" floatLabelType="Auto"></ejs-textbox>
+        <div *ngIf="dittumForm.get('an01EmailFattura')?.errors" class="error-messages">
+          <div *ngIf="dittumForm.get('an01EmailFattura')?.errors?.['email']" class="e-error">
+            Formato dell'email non valido
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <ejs-textbox placeholder="Note Contatto" formControlName="an01NoteContatto" multiline="true" floatLabelType="Auto"></ejs-textbox>
+      </div>
+    </div>
+  </ng-template>
+
+    <!-- Altri Dati -->
+     <ng-template #altriDati>
+    <div class="row">
+      <div class="col-md-4">
+        <ejs-dropdownlist placeholder="Enasarco" formControlName="an01Enasarco" [dataSource]="enasarcoData" [fields]="{text: 'label', value: 'value'}" floatLabelType="Auto"></ejs-dropdownlist>
+      </div>
+      <div class="col-md-4" *ngIf="dittumForm.get('an01Enasarco')?.value != undefined">
+        <ejs-numerictextbox placeholder="Percentuale Enasarco" formControlName="an01PercEnasarco" format="p"[step]="0.01" floatLabelType="Auto"></ejs-numerictextbox>
+      </div>
+      <div class="col-md-4" *ngIf="dittumForm.get('an01Enasarco')?.value != undefined">
+        <ejs-dropdownlist placeholder="Ritenuta Enasarco" formControlName="an01RitenutaEnasarco" [dataSource]="ritenutaEnasarcoData" [fields]="{text: 'label', value: 'value'}" floatLabelType="Auto"></ejs-dropdownlist>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-4">
+        <ejs-dropdownlist placeholder="Tipologia Fattura Predefinita" formControlName="an01TipologiaFatturaPredefinita" [dataSource]="tipologiaFatturaData" [fields]="{text: 'label', value: 'value'}" floatLabelType="Auto"></ejs-dropdownlist>
+      </div>
+      <div class="col-md-4">
+        <ejs-numerictextbox placeholder="Percentuale Contributi" formControlName="an01PercContributi" format="p"  [step]="0.01" floatLabelType="Auto"></ejs-numerictextbox>
+      </div>
+    </div>
+  </ng-template>
+
+     <!-- Note -->
+      <ng-template #note>
+        <div class="row">
+          <div class="col-md-6">
+            <ejs-textbox placeholder="Creazione Utente" formControlName="an01UserCreateCf02Email" floatLabelType="Auto"></ejs-textbox>
+          </div>
+          <div class="col-md-6">
+            <ejs-datepicker placeholder="Data Creazione" formControlName="an01DataCreate" format="dd/MM/yyyy" floatLabelType="Auto"></ejs-datepicker>
+          </div>
+          </div>
+          <div class="row">
+          <div class="col-md-6">
+            <ejs-textbox placeholder="Modifica Utente" formControlName="an01UserUpdateCf02Email" floatLabelType="Auto"></ejs-textbox>
+          </div>
+          <div class="col-md-6">
+            <ejs-datepicker placeholder="Data Modifica" formControlName="an01DataUpdate" format="dd/MM/yyyy" floatLabelType="Auto"></ejs-datepicker>
+          </div>
+        </div>
+      </ng-template>
+
+
+    <!-- Audit -->
+
+  </form>
+</div>
+
+<div class="d-flex justify-content-end" style="padding-right:20px" >
+  <button ejs-button cssClass="e-success" (click)="saveForm()">Salva</button>
+</div>
+</div>
+
+<!-- Toast per le notifiche -->
+<ejs-toast #toast [position]="toastPosition" [showCloseButton]="true"></ejs-toast>

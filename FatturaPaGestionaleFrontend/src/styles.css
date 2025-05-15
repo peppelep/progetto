@@ -1,0 +1,197 @@
+@import '../node_modules/@syncfusion/ej2-material-theme/styles/material.css';
+@import '../node_modules/@syncfusion/ej2-base/styles/material.css';
+@import '../node_modules/@syncfusion/ej2-buttons/styles/material.css';
+@import '../node_modules/@syncfusion/ej2-calendars/styles/material.css';
+@import '../node_modules/@syncfusion/ej2-dropdowns/styles/material.css';
+@import '../node_modules/@syncfusion/ej2-inputs/styles/material.css';
+@import '../node_modules/@syncfusion/ej2-navigations/styles/material.css';
+@import '../node_modules/@syncfusion/ej2-popups/styles/material.css';
+@import '../node_modules/@syncfusion/ej2-splitbuttons/styles/material.css';
+@import '../node_modules/@syncfusion/ej2-angular-grids/styles/material.css';
+@import '../node_modules/@syncfusion/ej2-angular-navigations/styles/material.css';
+@import "../node_modules/@syncfusion/ej2-angular-lists/styles/material.css";
+@import "../node_modules/@syncfusion/ej2-angular-popups/styles/material.css";
+
+/* Stili globali */
+:root {
+  --primary-color: #007bff;
+  --primary-hover-color: #0069d9;
+  --success-color: #0f8f53;
+  --danger-color: #e11717;
+  --menu-active-color: #28b59f;
+  --utility: #2e8175;
+  --default: #32796f;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  background-color: #A1CEC7;
+}
+
+/* Regole per i componenti nel router-outlet */
+router-outlet + * {
+  width: 100%;
+  display: block;
+  box-sizing: border-box;
+}
+
+.roboto-serif{
+  font-family: "Roboto Serif", serif;
+  font-optical-sizing: auto;
+  font-weight:600;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100,
+    "GRAD" 0;
+}
+
+.dm-serif-text-regular {
+  font-family: "DM Serif Text", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* Stili per i pulsanti */
+.e-btn.e-primary,
+.e-pager .e-currentitem {
+  background-color: var(--primary-color) !important;
+}
+
+.e-btn.e-primary:hover {
+  background-color: var(--primary-hover-color) !important;
+}
+
+.e-trash {
+  color: var(--danger-color) !important;
+}
+
+.save {
+  background-color: var(--success-color) !important;
+  color: white !important;
+}
+
+.button-transparent {
+  background-color: transparent !important;
+}
+
+.e-btn.e-flat.e-primary {
+  color: white !important;
+}
+
+.utilityButton {
+  background-color: var(--utility) !important;
+  color: white !important;
+}
+
+
+
+/* Stili per il menu */
+.e-treeview .e-list-item.e-active > .e-text-content,
+.e-treeview .e-list-item.e-active > .e-text-content .e-list-text,
+.e-treeview .e-list-item.e-active.e-hover > .e-text-content,
+.e-treeview .e-list-item.e-active.e-node-focus > .e-text-content {
+  color: var(--menu-active-color) !important;
+}
+
+
+
+/*campi form */
+/* label */
+.e-float-input:not(.e-error) input:focus ~ label.e-float-text, .e-float-input.e-small:not(.e-error) input:focus ~ label.e-float-text, .e-small .e-float-input:not(.e-error) input:focus ~ label.e-float-text, .e-float-input:not(.e-error) input[readonly]:focus ~ label.e-label-top.e-float-text, .e-float-input.e-control-wrapper:not(.e-error) input[readonly]:focus ~ label.e-label-top.e-float-text, .e-float-input.e-small:not(.e-error) input[readonly]:focus ~ label.e-float-text, .e-small .e-float-input:not(.e-error) input[readonly]:focus ~ label.e-float-text.e-label-top, .e-float-input.e-control-wrapper.e-small:not(.e-error) input[readonly]:focus ~ label.e-float-text, .e-small .e-float-input.e-control-wrapper:not(.e-error) input[readonly]:focus ~ label.e-float-text.e-label-top, .e-float-input:not(.e-error).e-input-focus input[readonly] ~ label.e-label-top.e-float-text, .e-float-input.e-control-wrapper:not(.e-error).e-input-focus input[readonly] ~ label.e-label-top.e-float-text, .e-float-input.e-small:not(.e-error).e-input-focus input[readonly] ~ label.e-float-text, .e-small .e-float-input:not(.e-error).e-input-focus input[readonly] ~ label.e-float-text.e-label-top, .e-float-input.e-control-wrapper.e-small:not(.e-error).e-input-focus input[readonly] ~ label.e-float-text, .e-small .e-float-input.e-control-wrapper:not(.e-error).e-input-focus input[readonly] ~ label.e-float-text.e-label-top, .e-float-input:not(.e-error) textarea[readonly]:focus ~ label.e-label-top.e-float-text, .e-float-input.e-control-wrapper:not(.e-error) textarea[readonly]:focus ~ label.e-label-top.e-float-text, .e-float-input.e-small:not(.e-error) textarea[readonly]:focus ~ label.e-float-text, .e-small .e-float-input:not(.e-error) textarea[readonly]:focus ~ label.e-float-text.e-label-top, .e-small .e-float-input.e-control-wrapper:not(.e-error) textarea[readonly]:focus ~ label.e-float-text.e-label-top, .e-float-input:not(.e-error).e-input-focus textarea[readonly] ~ label.e-label-top.e-float-text, .e-float-input.e-control-wrapper:not(.e-error).e-input-focus textarea[readonly] ~ label.e-label-top.e-float-text, .e-float-input.e-small:not(.e-error).e-input-focus textarea[readonly] ~ label.e-float-text, .e-small .e-float-input:not(.e-error).e-input-focus textarea[readonly] ~ label.e-float-text.e-label-top, .e-small .e-float-input.e-control-wrapper:not(.e-error).e-input-focus textarea[readonly] ~ label.e-float-text.e-label-top, .e-float-input:not(.e-error) textarea:focus ~ label.e-float-text, .e-float-input.e-small:not(.e-error) textarea:focus ~ label.e-float-text, .e-small .e-float-input:not(.e-error) textarea:focus ~ label.e-float-text, .e-float-input.e-control-wrapper:not(.e-error) input:focus ~ label.e-float-text, .e-float-input.e-control-wrapper.e-small:not(.e-error) input:focus ~ label.e-float-text, .e-small .e-float-input.e-control-wrapper:not(.e-error) input:focus ~ label.e-float-text, .e-float-input.e-control-wrapper:not(.e-error) textarea:focus ~ label.e-float-text, .e-float-input.e-control-wrapper.e-small:not(.e-error) textarea:focus ~ label.e-float-text, .e-small .e-float-input.e-control-wrapper:not(.e-error) textarea:focus ~ label.e-float-text, .e-float-input:not(.e-error).e-input-focus input ~ label.e-float-text, .e-float-input.e-small:not(.e-error).e-input-focus input ~ label.e-float-text, .e-small .e-float-input:not(.e-error).e-input-focus input ~ label.e-float-text, .e-float-input.e-control-wrapper:not(.e-error).e-input-focus input ~ label.e-float-text, .e-float-input.e-control-wrapper.e-small:not(.e-error).e-input-focus input ~ label.e-float-text, .e-small .e-float-input.e-control-wrapper:not(.e-error).e-input-focus input ~ label.e-float-text {
+    color: var(--menu-active-color);
+}
+
+/* line bottom */
+.e-input-group:not(.e-float-icon-left):not(.e-float-input)::before, .e-input-group:not(.e-float-icon-left):not(.e-float-input)::after, .e-input-group.e-float-icon-left:not(.e-float-input) .e-input-in-wrap::before, .e-input-group.e-float-icon-left:not(.e-float-input) .e-input-in-wrap::after, .e-input-group.e-control-wrapper:not(.e-float-icon-left):not(.e-float-input)::before, .e-input-group.e-control-wrapper:not(.e-float-icon-left):not(.e-float-input)::after, .e-input-group.e-control-wrapper.e-float-icon-left:not(.e-float-input) .e-input-in-wrap::before, .e-input-group.e-control-wrapper.e-float-icon-left:not(.e-float-input) .e-input-in-wrap::after, .e-float-input.e-input-group:not(.e-float-icon-left) .e-float-line::before, .e-float-input.e-input-group:not(.e-float-icon-left) .e-float-line::after, .e-float-input.e-input-group.e-float-icon-left .e-input-in-wrap .e-float-line::before, .e-float-input.e-input-group.e-float-icon-left .e-input-in-wrap .e-float-line::after, .e-float-input.e-control-wrapper.e-input-group:not(.e-float-icon-left) .e-float-line::before, .e-float-input.e-control-wrapper.e-input-group:not(.e-float-icon-left) .e-float-line::after, .e-float-input.e-control-wrapper.e-input-group.e-float-icon-left .e-input-in-wrap .e-float-line::before, .e-float-input.e-control-wrapper.e-input-group.e-float-icon-left .e-input-in-wrap .e-float-line::after, .e-filled.e-input-group.e-float-icon-left:not(.e-float-input)::before, .e-filled.e-input-group.e-float-icon-left:not(.e-float-input)::after, .e-filled.e-input-group.e-control-wrapper.e-float-icon-left:not(.e-float-input)::before, .e-filled.e-input-group.e-control-wrapper.e-float-icon-left:not(.e-float-input)::after, .e-filled.e-float-input.e-input-group.e-float-icon-left .e-float-line::before, .e-filled.e-float-input.e-input-group.e-float-icon-left .e-float-line::after, .e-filled.e-float-input.e-control-wrapper.e-input-group.e-float-icon-left .e-float-line::before, .e-filled.e-float-input.e-control-wrapper.e-input-group.e-float-icon-left .e-float-line::after {
+  color: var(--menu-active-color);
+}
+
+.e-input-group:not(.e-float-icon-left):not(.e-float-input)::before, .e-input-group:not(.e-float-icon-left):not(.e-float-input)::after, .e-input-group.e-float-icon-left:not(.e-float-input) .e-input-in-wrap::before, .e-input-group.e-float-icon-left:not(.e-float-input) .e-input-in-wrap::after, .e-input-group.e-control-wrapper:not(.e-float-icon-left):not(.e-float-input)::before, .e-input-group.e-control-wrapper:not(.e-float-icon-left):not(.e-float-input)::after, .e-input-group.e-control-wrapper.e-float-icon-left:not(.e-float-input) .e-input-in-wrap::before, .e-input-group.e-control-wrapper.e-float-icon-left:not(.e-float-input) .e-input-in-wrap::after, .e-float-input.e-input-group:not(.e-float-icon-left) .e-float-line::before, .e-float-input.e-input-group:not(.e-float-icon-left) .e-float-line::after, .e-float-input.e-input-group.e-float-icon-left .e-input-in-wrap .e-float-line::before, .e-float-input.e-input-group.e-float-icon-left .e-input-in-wrap .e-float-line::after, .e-float-input.e-control-wrapper.e-input-group:not(.e-float-icon-left) .e-float-line::before, .e-float-input.e-control-wrapper.e-input-group:not(.e-float-icon-left) .e-float-line::after, .e-float-input.e-control-wrapper.e-input-group.e-float-icon-left .e-input-in-wrap .e-float-line::before, .e-float-input.e-control-wrapper.e-input-group.e-float-icon-left .e-input-in-wrap .e-float-line::after, .e-filled.e-input-group.e-float-icon-left:not(.e-float-input)::before, .e-filled.e-input-group.e-float-icon-left:not(.e-float-input)::after, .e-filled.e-input-group.e-control-wrapper.e-float-icon-left:not(.e-float-input)::before, .e-filled.e-input-group.e-control-wrapper.e-float-icon-left:not(.e-float-input)::after, .e-filled.e-float-input.e-input-group.e-float-icon-left .e-float-line::before, .e-filled.e-float-input.e-input-group.e-float-icon-left .e-float-line::after, .e-filled.e-float-input.e-control-wrapper.e-input-group.e-float-icon-left .e-float-line::before, .e-filled.e-float-input.e-control-wrapper.e-input-group.e-float-icon-left .e-float-line::after {
+  background: var(--menu-active-color);
+}
+
+.e-input-group:not(.e-float-icon-left):not(.e-float-input)::before, .e-input-group:not(.e-float-icon-left):not(.e-float-input)::after, .e-input-group.e-float-icon-left:not(.e-float-input) .e-input-in-wrap::before, .e-input-group.e-float-icon-left:not(.e-float-input) .e-input-in-wrap::after, .e-input-group.e-control-wrapper:not(.e-float-icon-left):not(.e-float-input)::before, .e-input-group.e-control-wrapper:not(.e-float-icon-left):not(.e-float-input)::after, .e-input-group.e-control-wrapper.e-float-icon-left:not(.e-float-input) .e-input-in-wrap::before, .e-input-group.e-control-wrapper.e-float-icon-left:not(.e-float-input) .e-input-in-wrap::after, .e-float-input.e-input-group:not(.e-float-icon-left) .e-float-line::before, .e-float-input.e-input-group:not(.e-float-icon-left) .e-float-line::after, .e-float-input.e-input-group.e-float-icon-left .e-input-in-wrap .e-float-line::before, .e-float-input.e-input-group.e-float-icon-left .e-input-in-wrap .e-float-line::after, .e-float-input.e-control-wrapper.e-input-group:not(.e-float-icon-left) .e-float-line::before, .e-float-input.e-control-wrapper.e-input-group:not(.e-float-icon-left) .e-float-line::after, .e-float-input.e-control-wrapper.e-input-group.e-float-icon-left .e-input-in-wrap .e-float-line::before, .e-float-input.e-control-wrapper.e-input-group.e-float-icon-left .e-input-in-wrap .e-float-line::after, .e-filled.e-input-group.e-float-icon-left:not(.e-float-input)::before, .e-filled.e-input-group.e-float-icon-left:not(.e-float-input)::after, .e-filled.e-input-group.e-control-wrapper.e-float-icon-left:not(.e-float-input)::before, .e-filled.e-input-group.e-control-wrapper.e-float-icon-left:not(.e-float-input)::after, .e-filled.e-float-input.e-input-group.e-float-icon-left .e-float-line::before, .e-filled.e-float-input.e-input-group.e-float-icon-left .e-float-line::after, .e-filled.e-float-input.e-control-wrapper.e-input-group.e-float-icon-left .e-float-line::before, .e-filled.e-float-input.e-control-wrapper.e-input-group.e-float-icon-left .e-float-line::after {
+  background: var(--menu-active-color);
+}
+
+.e-input-group:not(.e-float-icon-left):not(.e-float-input)::before, .e-input-group:not(.e-float-icon-left):not(.e-float-input)::after, .e-input-group.e-float-icon-left:not(.e-float-input) .e-input-in-wrap::before, .e-input-group.e-float-icon-left:not(.e-float-input) .e-input-in-wrap::after, .e-input-group.e-control-wrapper:not(.e-float-icon-left):not(.e-float-input)::before, .e-input-group.e-control-wrapper:not(.e-float-icon-left):not(.e-float-input)::after, .e-input-group.e-control-wrapper.e-float-icon-left:not(.e-float-input) .e-input-in-wrap::before, .e-input-group.e-control-wrapper.e-float-icon-left:not(.e-float-input) .e-input-in-wrap::after, .e-float-input.e-input-group:not(.e-float-icon-left) .e-float-line::before, .e-float-input.e-input-group:not(.e-float-icon-left) .e-float-line::after, .e-float-input.e-input-group.e-float-icon-left .e-input-in-wrap .e-float-line::before, .e-float-input.e-input-group.e-float-icon-left .e-input-in-wrap .e-float-line::after, .e-float-input.e-control-wrapper.e-input-group:not(.e-float-icon-left) .e-float-line::before, .e-float-input.e-control-wrapper.e-input-group:not(.e-float-icon-left) .e-float-line::after, .e-float-input.e-control-wrapper.e-input-group.e-float-icon-left .e-input-in-wrap .e-float-line::before, .e-float-input.e-control-wrapper.e-input-group.e-float-icon-left .e-input-in-wrap .e-float-line::after, .e-filled.e-input-group.e-float-icon-left:not(.e-float-input)::before, .e-filled.e-input-group.e-float-icon-left:not(.e-float-input)::after, .e-filled.e-input-group.e-control-wrapper.e-float-icon-left:not(.e-float-input)::before, .e-filled.e-input-group.e-control-wrapper.e-float-icon-left:not(.e-float-input)::after, .e-filled.e-float-input.e-input-group.e-float-icon-left .e-float-line::before, .e-filled.e-float-input.e-input-group.e-float-icon-left .e-float-line::after, .e-filled.e-float-input.e-control-wrapper.e-input-group.e-float-icon-left .e-float-line::before, .e-filled.e-float-input.e-control-wrapper.e-input-group.e-float-icon-left .e-float-line::after {
+  background: var(--menu-active-color);
+}
+
+/*dropdownlist*/
+.e-dropdownbase .e-list-item.e-item-focus, .e-dropdownbase .e-list-item.e-active, .e-dropdownbase .e-list-item.e-active.e-hover, .e-dropdownbase .e-list-item.e-hover {
+  background-color: #94d8d7;
+  color: white;
+}
+
+/*checkbox*/
+.e-checkbox-wrapper .e-frame.e-check, .e-css.e-checkbox-wrapper .e-frame.e-check {
+  background-color: var(--menu-active-color);
+}
+
+.e-checkbox-wrapper .e-checkbox:focus + .e-frame.e-check,
+.e-checkbox-wrapper .e-checkbox:active + .e-frame.e-check,
+.e-css.e-checkbox-wrapper .e-checkbox:focus + .e-frame.e-check,
+.e-css.e-checkbox-wrapper .e-checkbox:active + .e-frame.e-check,
+.e-checkbox-wrapper .e-checkbox:hover + .e-frame.e-check,
+.e-css.e-checkbox-wrapper .e-checkbox:hover + .e-frame.e-check {
+  background-color: var(--utility);
+}
+
+.e-checkbox-wrapper .e-frame.e-check, .e-css.e-checkbox-wrapper .e-frame.e-check{
+  background-color: var(--menu-active-color);
+}
+
+
+/* grid */
+/* Stile per l'header della grid */
+::ng-deep .e-grid .e-gridheader {
+  background-color: #f0f0f0 !important;
+}
+
+::ng-deep .e-grid .e-headercell {
+  background-color: #f0f0f0 !important;
+  text-align: left !important;
+}
+
+/* table - allineamento a sinistra dei td */
+::ng-deep .e-grid .e-rowcell {
+  text-align: left !important;
+}
+
+/* Stili per la grid */
+::ng-deep .e-grid {
+  border-radius: 12px !important;
+  overflow: hidden !important;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1) !important;
+}
+
+::ng-deep .e-grid .e-gridheader {
+  border-top-left-radius: 12px !important;
+  border-top-right-radius: 12px !important;
+}
+
+
+
+/* container */
+.containerForm {
+  padding: 0 20px;
+  height: calc(100vh - 100px); /* Altezza fissa per il container principale */
+  display: flex;
+  flex-direction: column;
+  overflow: hidden; /* Impedisce lo scrolling del container principale */
+}
+
+.containerRouting{
+   margin-top: 1em;
+  width: 100%;
+}
+
+.divRounded{
+  border-radius: 20px;
+}

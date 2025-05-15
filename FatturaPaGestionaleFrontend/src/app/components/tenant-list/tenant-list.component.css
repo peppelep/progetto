@@ -1,0 +1,75 @@
+
+
+/* Stile per l'header della grid */
+::ng-deep .e-grid .e-gridheader {
+  background-color: #f0f0f0 !important;
+}
+
+::ng-deep .e-grid .e-headercell {
+  background-color: #f0f0f0 !important;
+  text-align: left !important;
+}
+
+/* table - allineamento a sinistra dei td */
+::ng-deep .e-grid .e-rowcell {
+  text-align: left !important;
+}
+
+/* Stili per la grid */
+::ng-deep .e-grid {
+  border-radius: 12px !important;
+  overflow: hidden !important;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1) !important;
+}
+
+::ng-deep .e-grid .e-gridheader {
+  border-top-left-radius: 12px !important;
+  border-top-right-radius: 12px !important;
+}
+
+
+/* ::ng-deep .e.input-group .e-input-focus{
+  border-bottom: #007bff!important ;
+}
+
+::ng-deep .e-control.e-input {
+  border-bottom: 1px solid #1976d2 !important;
+}
+*/
+
+
+#ditta{
+  color: #0069d9!important;
+  font-size: 15px!important;
+  height: 15px!important;
+  width: 15px!important;
+}
+
+.e-tooltip-wrap.e-popup {
+  box-shadow: 0px 0 7px #20635c;
+}
+
+/* Stile per l'header del dialog */
+::ng-deep .e-dialog .e-dialog-header {
+  background-color: #f0f0f0 !important;
+  padding: 15px !important;
+}
+
+::ng-deep .e-dialog .e-dialog-header-content {
+  background-color: #f0f0f0 !important;
+}
+
+::ng-deep .e-dialog .e-dialog-header-content .e-btn.e-dlg-closeicon-btn {
+  background-color: #f0f0f0 !important;
+}
+
+/* Stile per il contenuto del dialog */
+::ng-deep .e-dialog .e-dialog-content {
+  padding: 20px !important;
+}
+
+/* Stile per il footer del dialog */
+::ng-deep .e-dialog .e-dialog-footer {
+  background-color: #f0f0f0 !important;
+  padding: 15px !important;
+}
